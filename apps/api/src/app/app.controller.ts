@@ -1,15 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
-
-import { Message } from '@howhot/api-interfaces';
-
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Vote } from '@howhot/api-interfaces';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  @Get('votes')
+  getVotes() {
+    return this.appService.getVotes();
   }
+
+  @Post('votes')
+  postVote(@Body() vote: Vote){
+    return this.appService.postVote(vote);
+  }
+
 }
