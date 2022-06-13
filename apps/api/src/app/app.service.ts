@@ -1,24 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { Vote } from '@howhot/api-interfaces';
+import { Vote } from './votes/vote.entity';
+import { VotesService } from './votes/votes.service';
 
 @Injectable()
 export class AppService {
-  votes: Vote[] = [
-    { email: 'nlabandera', vote: 'ok' },
-    { email: 'acraiu', vote: 'ok' }
-  ];
 
-  getVotes(): Vote[] {
-    return this.votes;
+  constructor(
+    private voteService: VotesService
+  ) {}
+
+  getVotes() {
+    return this.voteService.getVotes();
   }
 
-  postVote(vote: Vote){
-    const newVote = {
-      email: vote.email,
-      vote: vote.vote
-    }
-    this.votes = [...this.votes, newVote]
-    return newVote;
+  postVote(vote: Vote) {
+    return this.voteService.postVote(vote);
   }
 
 }
