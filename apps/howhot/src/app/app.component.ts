@@ -12,7 +12,7 @@ import { Body } from '@nestjs/common';
 export class AppComponent {
 
   votes$ = this.http.get<Vote>('/api/votes');
-  vote$ = this.http.post<Vote>('/api/votes', Body);
+  // vote$ = this.http.post<Vote>('/api/votes', Body);
 
   constructor(private http: HttpClient) {}
 
