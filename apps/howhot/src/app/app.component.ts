@@ -11,15 +11,9 @@ import { Body } from '@nestjs/common';
 })
 export class AppComponent {
 
-  votes$ = this.http.get<Vote>('/api/votes');
+  votes$ = this.http.get<Vote[]>('/api/votes');
   // vote$ = this.http.post<Vote>('/api/votes', Body);
 
   constructor(private http: HttpClient) {}
-
-  getVotes(): Observable<Vote>{
-    return this.votes$;
-  }
-
-
 
 }
