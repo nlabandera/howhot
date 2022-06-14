@@ -1,6 +1,6 @@
-<form action="">
-  <input type="text" name="email" placeholder="email">
-  <button value="ok" name="vote">OK</button>
-  <button value="hot" name="vote">HOT</button>
-  <button value="cold" name="vote">COLD</button>
+<form >
+  <input type="text" [(ngModel)]="email" name="email" placeholder="email">
+  <button [(ngModel)]="vote" (click)="postVote()" value="ok" name="vote">OK</button>
+  <button [(ngModel)]="vote" (click)="postVote()" value="hot" name="vote">HOT</button>
+  <button [(ngModel)]="vote" (click)="postVote()" value="cold" name="vote">COLD</button>
 </form>

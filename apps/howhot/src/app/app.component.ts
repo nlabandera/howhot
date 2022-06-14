@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Vote } from '@howhot/api-interfaces';
 import { Observable } from 'rxjs';
