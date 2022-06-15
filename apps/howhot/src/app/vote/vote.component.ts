@@ -36,9 +36,9 @@ export class VoteComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
     console.log('works')
-
     // this.http.post<Vote[]>('/api/votes',{email: "test@test.com", vote: "ok"}).subscribe(req => this.votes = req);
-  }
+}
 }
