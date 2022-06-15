@@ -1,7 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
-export class Vote {
+export class Votes {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -11,7 +11,10 @@ export class Vote {
   @Column()
   vote: string;
 
-  // @Column()
-  // timestamp: number;
+  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+  public created_at: Date;
+
+  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
+  public updated_at: Date;
 
 }

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Vote } from './votes/vote.entity';
+import { Votes } from './votes/vote.entity';
 
 @Controller()
 export class AppController {
@@ -12,7 +12,7 @@ export class AppController {
   }
 
   @Post('votes')
-  postVote(@Body() vote: Vote){
+  postVote(@Body() vote: Votes){
     return this.appService.postVote(vote);
   }
 
