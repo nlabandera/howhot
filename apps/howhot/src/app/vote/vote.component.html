@@ -1,8 +1,8 @@
-<form >
-  <input type="text" [(ngModel)]="email" name="email" placeholder="email">
-  <input type="text" [(ngModel)]="vote" name="vote">
-  <button type="submit" (click)="post(email,vote)">Submit</button>
-  <!-- <button type="submit" (click)="postVote()">OK</button> -->
-  <!-- <button type="text" [(ngModel)]="vote" (click)="postVote()" value="hot" name="vote">HOT</button>
-  <button [(ngModel)]="vote" (click)="postVote()" value="cold" name="vote">COLD</button> -->
+<form>
+  <input type="email" [(ngModel)]="email" name="email" value="{{email}}" placeholder="email">
+  <select [(ngModel)]="vote" name="vote" id="votes_states">
+    <option *ngFor="let state of states" [ngValue]="state" value="{{state}}">{{state}}</option>
+  </select>
+  <button type="submit" (click)="post(email,vote)">Vote!</button>
+  <p>{{vote}}</p>
 </form>

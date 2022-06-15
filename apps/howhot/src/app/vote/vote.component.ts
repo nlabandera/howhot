@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Vote } from '@howhot/api-interfaces';
 import { VoteService } from './vote.service';
 
@@ -11,8 +12,9 @@ import { VoteService } from './vote.service';
 export class VoteComponent implements OnInit {
   votes: Vote[]= [];
   email!: string;
+  states: string[]=['ok','cold','hot'];
   vote!: string;
-  id!: number
+  id!: number;
 
   constructor(
     private voteService: VoteService,
@@ -31,12 +33,12 @@ export class VoteComponent implements OnInit {
     this.voteService.postVote({email, vote} as Vote).subscribe(
       data => {this.votes.push(data)}
     )
-  }
 
+  }
 
   ngOnInit(): void {
     console.log('works')
-    this.postVote()
+
     // this.http.post<Vote[]>('/api/votes',{email: "test@test.com", vote: "ok"}).subscribe(req => this.votes = req);
   }
 }
