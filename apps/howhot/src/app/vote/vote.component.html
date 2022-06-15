@@ -1,6 +1,8 @@
 <form >
   <input type="text" [(ngModel)]="email" name="email" placeholder="email">
-  <button [(ngModel)]="vote" (click)="postVote()" value="ok" name="vote">OK</button>
-  <button [(ngModel)]="vote" (click)="postVote()" value="hot" name="vote">HOT</button>
-  <button [(ngModel)]="vote" (click)="postVote()" value="cold" name="vote">COLD</button>
+  <input type="text" [(ngModel)]="vote" name="vote">
+  <button type="submit" (click)="post(email,vote)">Submit</button>
+  <!-- <button type="submit" (click)="postVote()">OK</button> -->
+  <!-- <button type="text" [(ngModel)]="vote" (click)="postVote()" value="hot" name="vote">HOT</button>
+  <button [(ngModel)]="vote" (click)="postVote()" value="cold" name="vote">COLD</button> -->
 </form>
