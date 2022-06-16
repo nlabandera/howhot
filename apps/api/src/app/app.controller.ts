@@ -16,4 +16,9 @@ export class AppController {
     return this.appService.postVote(vote);
   }
 
+  @Get('states')
+  countVotes(){
+    return this.appService.countVotes();
+  }
+
 }
