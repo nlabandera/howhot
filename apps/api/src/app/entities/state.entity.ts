@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Users } from './user.entity';
 
 @Entity()
 export class States {
@@ -7,5 +8,9 @@ export class States {
 
   @Column()
   state: string;
+
+  @OneToMany(() => Users, (users)=> users.states)
+  public users: Users[];
+
 
 }

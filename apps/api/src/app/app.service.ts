@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { Users } from './entities/user.entity';
+import { UsersService } from './services/users.service';
 import { Votes } from './votes/vote.entity';
 import { VotesService } from './votes/votes.service';
 
@@ -6,8 +8,17 @@ import { VotesService } from './votes/votes.service';
 export class AppService {
 
   constructor(
-    private voteService: VotesService
+    private voteService: VotesService,
+    private userService: UsersService
   ) {}
+
+  getUsers(){
+    return this.userService.getUsers();
+  }
+
+  postUser(user: Users){
+    return this.userService.postUser(user);
+  }
 
   getVotes() {
     return this.voteService.getVotes();

@@ -27,7 +27,7 @@ import { StatesModule } from './modules/states.module';
       username: 'user',
       password: 'veryhot',
       database: 'howhot',
-      entities:[Votes],
+      entities:[Users, States],
       synchronize: true
     })
   ],

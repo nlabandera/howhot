@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Roles } from './role.entity';
+import { States } from './state.entity';
 
 @Entity()
 export class Users {
@@ -17,12 +19,7 @@ export class Users {
   @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
   public updated_at: Date;
 
-  //Foreign key refers to state.state_id
-  @Column()
-  vote: number;
-
-  //Foreign key refers to roles.role_id
-  @Column()
-  role: number
+  @ManyToOne(() => States, (states) => states.users)
+  public states: States;
 
 }
