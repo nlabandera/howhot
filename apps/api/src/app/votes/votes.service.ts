@@ -15,6 +15,11 @@ export class VotesService {
   }
 
   postVote(vote: Votes){
+
     return this.votesRepository.save([vote]);
+  }
+
+  getVotesCount() {
+    return this.votesRepository.query('select count(*) as \'ok\' from votes where vote=\'ok\'');
   }
 }

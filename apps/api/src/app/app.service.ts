@@ -17,4 +17,8 @@ export class AppService {
     return this.voteService.postVote(vote);
   }
 
+  countVotes(){
+    return this.voteService.getVotesCount();
+  }
+
 }
