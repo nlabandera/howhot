@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Vote } from './vote.entity';
+import { Votes } from './vote.entity';
 
 @Injectable()
 export class VotesService {
   constructor(
-    @InjectRepository(Vote) private votesRepository: Repository<Vote>,
+    @InjectRepository(Votes) private votesRepository: Repository<Votes>,
   ) {}
 
   getVotes() {
@@ -14,7 +14,12 @@ export class VotesService {
     // .then(votes => { console.log(votes);return votes;})
   }
 
-  postVote(vote: Vote){
+  postVote(vote: Votes){
+
     return this.votesRepository.save([vote]);
+  }
+
+  getVotesCount() {
+    return this.votesRepository.query('select count(*) as \'ok\' from votes where vote=\'ok\'');
   }
 }

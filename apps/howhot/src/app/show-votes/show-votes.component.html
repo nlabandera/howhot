@@ -1,0 +1,19 @@
+<p>show-votes works!</p>
+<div>
+  <ul>
+    <li *ngFor="let vote of votes">{{ vote.email}} votes <span><b>{{vote.vote}}</b></span></li>
+  </ul>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>OK</th>
+      <th>COLD</th>
+      <th>HOT</th>
+    </tr>
+    <tr>
+      <td *ngFor="let c of count"> {{c}}</td>
+
+    </tr>
+  </table>
+</div>

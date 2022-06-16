@@ -1,9 +1,7 @@
-<div style="text-align: center">
-  <h1>Welcome to howhot!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
-</div>
-<div>Votes: {{ votes$ | async | json }}</div>
+<!-- <div>
+  <ul>
+    <li *ngFor="let vote of votes$ | async">{{ vote.email}} votes <span><b>{{vote.vote}}</b></span></li>
+  </ul>
+</div> -->
+<howhot-show-votes></howhot-show-votes>
+<howhot-vote></howhot-vote>

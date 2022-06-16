@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Vote } from './votes/vote.entity';
+import { Votes } from './votes/vote.entity';
 import { VotesService } from './votes/votes.service';
 
 @Injectable()
@@ -13,8 +13,12 @@ export class AppService {
     return this.voteService.getVotes();
   }
 
-  postVote(vote: Vote) {
+  postVote(vote: Votes) {
     return this.voteService.postVote(vote);
+  }
+
+  countVotes(){
+    return this.voteService.getVotesCount();
   }
 
 }

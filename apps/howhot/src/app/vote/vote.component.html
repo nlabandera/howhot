@@ -1,0 +1,8 @@
+<form>
+  <input type="email" [(ngModel)]="email" name="email" value="{{email}}" placeholder="email">
+  <select [(ngModel)]="vote" name="vote" id="votes_states">
+    <option *ngFor="let state of states" [ngValue]="state" value="{{state}}">{{state}}</option>
+  </select>
+  <button type="submit" (click)="post(email,vote)">Vote!</button>
+  <p>{{vote}}</p>
+</form>

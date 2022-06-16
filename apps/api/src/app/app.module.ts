@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Vote } from './votes/vote.entity';
+import { Votes } from './votes/vote.entity';
 import { VotesModule } from './votes/votes.module';
 
 @Module({
@@ -16,7 +16,7 @@ import { VotesModule } from './votes/votes.module';
       username: 'user',
       password: 'veryhot',
       database: 'howhot',
-      entities:[Vote],
+      entities:[Votes],
       synchronize: true
     })
   ],
