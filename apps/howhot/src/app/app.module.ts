@@ -6,9 +6,15 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VoteComponent } from './vote/vote.component';
 import { FormsModule } from '@angular/forms';
+import { ShowVotesComponent } from './show-votes/show-votes.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, VoteComponent],
+  declarations: [
+    AppComponent,
+    NxWelcomeComponent,
+    VoteComponent,
+    ShowVotesComponent,
+  ],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

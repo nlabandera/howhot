@@ -7,12 +7,15 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class VoteService {
-
   votes: Vote[] = [];
 
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  getVotes():Observable<Vote[]>{
+    return this.httpClient.get<Vote[]>('/api/votes');
+  }
 
 /* V1 */
   post(vote: Vote) {

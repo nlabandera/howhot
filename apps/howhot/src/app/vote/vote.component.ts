@@ -21,6 +21,7 @@ export class VoteComponent implements OnInit {
     private http: HttpClient
   ) {}
 
+
   /* v1 */
   postVote(){
     // this.voteService.post({email: "test3@tmail.com", vote: "ok"})
