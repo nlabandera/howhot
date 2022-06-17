@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, Connection, JoinColumn } from 'typeorm';
 import { Roles } from './role.entity';
 import { States } from './state.entity';
 
@@ -19,7 +19,12 @@ export class Users {
   @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })
   public updated_at: Date;
 
-  @ManyToOne(() => States, (states) => states.users)
-  public states: States;
+  @Column()
+  votes: string;
+
+  // @ManyToOne( () => States)
+  @ManyToOne(() => States, (states) => states, {cascade: true})
+  @JoinColumn({name: 'votes', referencedColumnName: 'id' })
+  state: States;
 
 }

@@ -9,7 +9,7 @@ export class States {
   @Column()
   state: string;
 
-  @OneToMany(() => Users, (users)=> users.states)
+  @OneToMany(() => Users, (users)=> users.votes)
   public users: Users[];
 
 
