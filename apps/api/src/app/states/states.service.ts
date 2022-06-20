@@ -19,8 +19,14 @@ export class StatesService {
     return this.statesRepository.find();
   }
 
+  // async getAllUsersOfVotes(): Promise<Users[]>{
+  //   console.log();
+  //   const states: States[] = await this.statesRepository.find();
+  //   return states;
+  // }
+
   async getUsersOfVotes(id: number): Promise<Users[]>{
-    console.log(id);
+    console.log('service',id);
     const state: States = await this.statesRepository.findOne({where : {id: id}, relations: ['users']});
     return state.users;
   }

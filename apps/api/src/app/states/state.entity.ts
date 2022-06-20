@@ -9,9 +9,8 @@ export class States {
   @Column()
   state: string;
 
-  @OneToMany(() => Users, (users)=> users.votes)
-  public users: Users[];
-  static users: States[] | PromiseLike<States[]>;
+  @OneToMany( () => Users , (users) => users.votes)
+  users: Users[];
 
 
 }
