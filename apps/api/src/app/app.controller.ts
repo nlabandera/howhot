@@ -1,30 +1,45 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, ParseIntPipe, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { Users } from './entities/user.entity';
-import { Votes } from './votes/vote.entity';
+import { States } from './states/state.entity';
+import { StatesService } from './states/states.service';
+import { Users } from './users/user.entity';
+import { UsersService } from './users/users.service';
+
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
 
-  @Get('users')
-  getUsers(){
-    return this.appService.getUsers();
+  constructor(
+    private readonly stateService: StatesService,
+    // private readonly userService: UsersService,
+    private appService: AppService
+    ) {}
+
+  @Post('vote')
+  postVote( @Body() vote: States) {
+    return this.stateService.postVote(vote)
   }
-
-  @Post('users')
-  postUser(@Body() user:Users){
-    return this.appService.postUser(user);
-  }
-
+// Returns the list of all the existing votes in the database
   @Get('votes')
   getVotes() {
-    return this.appService.getVotes();
+    return this.stateService.getVotes();
   }
 
-  @Post('votes')
-  postVote(@Body() vote: Votes){
-    return this.appService.postVote(vote);
+// Return all the users which are associated with the stat
+// provided through 'state.id' by the request
+  @Get('participants')
+  getParticipants( @Body('id', ParseIntPipe) id: number ) {
+    return this.stateService.getUsersOfVotes(id);
   }
 
+  /* @Post('user')
+  async postUser(@Body() user:Users){
+    return this.userService.postUser(user);
+  }
+
+  @Get('users')
+  async getUsers(): Promise<Users[]>{
+    return this.userService.getUsers();
+  }
+ */
 }

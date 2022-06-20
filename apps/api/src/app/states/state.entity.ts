@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Users } from './user.entity';
+import { Users } from '../users/user.entity';
 
 @Entity()
 export class States {
@@ -11,6 +11,7 @@ export class States {
 
   @OneToMany(() => Users, (users)=> users.votes)
   public users: Users[];
+  static users: States[] | PromiseLike<States[]>;
 
 
 }
