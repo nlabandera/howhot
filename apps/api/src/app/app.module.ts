@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { AppController } from './app.controller';
+import { Users } from './users/user.entity';
+import { States } from './states/state.entity';
+import { StatesModule } from './states/states.module';
 import { AppService } from './app.service';
-import { Votes } from './votes/vote.entity';
-import { VotesModule } from './votes/votes.module';
+
 
 @Module({
   imports: [
-    VotesModule,
+    StatesModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -16,11 +17,11 @@ import { VotesModule } from './votes/votes.module';
       username: 'user',
       password: 'veryhot',
       database: 'howhot',
-      entities:[Votes],
+      entities: [Users, States],
       synchronize: true
     })
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
