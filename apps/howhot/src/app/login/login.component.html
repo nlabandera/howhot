@@ -1,0 +1,11 @@
+<div>
+  <form #heroForm="ngForm">
+    <div class="form-group">
+      <input id="email" type="email" placeholder="email" class="form-control" required [(ngModel)]="email" name="email"
+        #name="ngModel">
+      <input hidden [(ngModel)]="vote" name="vote" id="vote">
+    </div>
+    <button type="submit" (click)="login()">Login</button>
+    <p>{{email}}</p>
+  </form>
+</div>

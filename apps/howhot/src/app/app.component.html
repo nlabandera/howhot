@@ -3,5 +3,6 @@
     <li *ngFor="let vote of votes$ | async">{{ vote.email}} votes <span><b>{{vote.vote}}</b></span></li>
   </ul>
 </div> -->
-<howhot-show-votes></howhot-show-votes>
-<howhot-vote></howhot-vote>
+<router-outlet></router-outlet>
+<!-- <howhot-show-votes></howhot-show-votes>
+<howhot-vote></howhot-vote> -->
