@@ -1,11 +1,17 @@
-<div>
-  <form #heroForm="ngForm">
-    <div class="form-group">
-      <input id="email" type="email" placeholder="email" class="form-control" required [(ngModel)]="email" name="email"
-        #name="ngModel">
-      <input hidden [(ngModel)]="vote" name="vote" id="vote">
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card px-5 py-5">
+        <form #heroForm="ngForm" class="form-data">
+          <div class="forms-inputs mb-4">
+            <input id="email" type="email" placeholder="email" class="form-control" required [(ngModel)]="email"
+              name="email" #name="ngModel">
+            <input hidden [(ngModel)]="vote" name="vote" id="vote">
+          </div>
+          <button type="submit" class="btn btn-primary w-100" (click)="login()">Login</button>
+          <p>{{email}}</p>
+        </form>
+      </div>
     </div>
-    <button type="submit" (click)="login()">Login</button>
-    <p>{{email}}</p>
-  </form>
+  </div>
 </div>
