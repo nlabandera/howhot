@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { VoteService } from '../vote/vote.service';
 
 
@@ -9,6 +9,10 @@ import { VoteService } from '../vote/vote.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+
+  votantEmail= new FormControl('',[
+  	Validators.required,
+  	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]);
 
   email!: string;
   vote!:string;
