@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { VoteService } from '../vote/vote.service';
 
 
