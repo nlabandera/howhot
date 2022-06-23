@@ -1,22 +1,20 @@
-
-import { StatesService } from './states/states.service';
-import { States } from './states/state.entity';
 import { Injectable } from '@nestjs/common';
+import { Votes } from './votes/vote.entity';
+import { VotesService } from './votes/votes.service';
 
 @Injectable()
 export class AppService {
 
   constructor(
-    private stateService: StatesService,
+    private voteService: VotesService
   ) {}
 
-
-  postVote(vote: States) {
-    return this.stateService.postVote(vote);
+  getVotes() {
+    return this.voteService.getVotes();
   }
 
-  // countVotes(){
-  //   return this.voteService.getVotesCount();
-  // }
+  postVote(vote: Votes) {
+    return this.voteService.postVote(vote);
+  }
 
 }
